@@ -25,7 +25,7 @@ public class IrrigationScheduler {
     private PlotRepository plotRepository;
 
     /**
-     * executing a task on every second from the application startup is shown here −
+     * executing a task on every three hours to check for schedule
      */
     @Scheduled(fixedRate = 10800000)
     public void checkIrrigationEveryHour() {
