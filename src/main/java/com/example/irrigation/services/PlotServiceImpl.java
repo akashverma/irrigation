@@ -21,7 +21,7 @@ public class PlotServiceImpl implements PlotService {
     private PlotRepository plotRepository;
 
     @Override
-    public void addPlot(PlotRequest request) {
+    public Plot addPlot(PlotRequest request) {
         log.info("Adding new plot of land");
 
         Plot plot = new Plot();
@@ -33,6 +33,7 @@ public class PlotServiceImpl implements PlotService {
         plot.setBreadth(request.getBreadth());
         Plot savedPlot = plotRepository.save(plot);
         log.info("New plot saved: [{}]", savedPlot);
+        return savedPlot;
     }
 
     @Override

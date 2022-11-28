@@ -41,12 +41,12 @@ public class IrrigationScheduler {
                 log.info("Irrigated Plot with id: {}", plot.getId());
                 plot.setIrrigated(true);
                 plotRepository.save(plot);
+                updateNextSlot(currentSlot);
             }
         } else {
             log.error("No Scheduled plot found for irrigation. Check Seed Data!!");
+            log.error("Send email/SMS notification to Admin!");
         }
-        updateNextSlot(currentSlot);
-        log.info("Scheduled Job Completed! for slot: {}", currentSlot);
     }
 
     /**
@@ -83,6 +83,6 @@ public class IrrigationScheduler {
         if (currentSlot.equals(TimeSlot.EVENING)) {
             slotPicker = TimeSlot.MORNING.toString();
         }
-        log.info("Next Slot due for Irrigation is: {}", slotPicker);
+        log.info("Scheduled Job Completed! Next Slot due for Irrigation is: {}", slotPicker);
     }
 }

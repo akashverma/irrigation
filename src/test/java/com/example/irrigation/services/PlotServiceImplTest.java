@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.mockito.ArgumentMatchers.any;
 
 @SpringBootTest
-public class PlotServiceImplTest {
+class PlotServiceImplTest {
 
     @InjectMocks
     private PlotServiceImpl plotService;

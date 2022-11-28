@@ -7,7 +7,7 @@ import com.example.irrigation.entity.Plot;
 import java.util.List;
 
 public interface PlotService {
-    void addPlot(PlotRequest plotRequest);
+    Plot addPlot(PlotRequest plotRequest);
 
     List<PlotDto> fetchPlots();
 

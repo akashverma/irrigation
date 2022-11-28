@@ -1,6 +1,7 @@
 package com.example.irrigation.controller;
 
 
+import com.example.irrigation.IrrigationTestHelper;
 import com.example.irrigation.controllers.PlotController;
 import com.example.irrigation.dtos.PlotDto;
 import com.example.irrigation.services.PlotService;
@@ -12,7 +13,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -34,7 +34,7 @@ class PlotControllerTest {
     @Test
     void testFetchPlots() {
         Mockito.when(plotService.fetchPlots())
-                .thenReturn(mockedPlots());
+                .thenReturn(IrrigationTestHelper.mockedPlots());
 
         List<PlotDto> response = plotController.fetchPlots();
 
@@ -43,17 +43,6 @@ class PlotControllerTest {
         assertFalse(response.get(1).isIrrigated());
     }
 
-    List<PlotDto> mockedPlots() {
-        List<PlotDto> plots = new ArrayList<>();
 
-        PlotDto plot1 = new PlotDto();
-        plot1.setIrrigated(true);
-        PlotDto plot2 = new PlotDto();
-        plot2.setIrrigated(false);
-
-        plots.add(plot1);
-        plots.add(plot2);
-        return plots;
-    }
 
 }
