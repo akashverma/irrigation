@@ -34,7 +34,7 @@ class PlotControllerTest {
     @Test
     void testFetchPlots() {
         Mockito.when(plotService.fetchPlots())
-                .thenReturn(IrrigationTestHelper.mockedPlots());
+                .thenReturn(IrrigationTestHelper.mockPlotDtos());
 
         List<PlotDto> response = plotController.fetchPlots();
 

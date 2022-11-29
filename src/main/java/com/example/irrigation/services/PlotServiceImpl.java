@@ -54,8 +54,6 @@ public class PlotServiceImpl implements PlotService {
         } else {
             throw new PlotServiceException();
         }
-
-
     }
 
     List<PlotDto> convertToPlotDto(List<Plot> plots) {
