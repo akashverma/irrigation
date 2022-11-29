@@ -17,7 +17,7 @@ For further reference, please consider the following sections:
 The swagger portal is added, refer snapshot
 
 portal url hosted at - http://localhost:7071/swagger-ui.html
-![img.png](img.png)
+![img_1.png](img_1.png)![img.png](img.png)
 
 
 

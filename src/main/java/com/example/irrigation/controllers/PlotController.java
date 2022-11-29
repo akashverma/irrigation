@@ -6,6 +6,8 @@ import com.example.irrigation.dtos.request.PlotRequest;
 import com.example.irrigation.entity.Plot;
 import com.example.irrigation.scheduler.IrrigationScheduler;
 import com.example.irrigation.services.PlotService;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +38,7 @@ public class PlotController {
      * @param plotRequest
      */
     @PostMapping("/plot")
+    @ApiOperation(value = "API to add a new Plot of Land", notes = "Choose Slot from MORNING, NOON, EVENING")
     public ResponseEntity<Plot> addPlot(@RequestBody PlotRequest plotRequest) {
         log.info("request received to add a new PlotRequest of Land: [{}]", plotRequest);
         return ResponseEntity.accepted().body(plotService.addPlot(plotRequest));
@@ -49,6 +52,7 @@ public class PlotController {
      * @return
      */
     @PatchMapping("/plot/{id}")
+    @ApiOperation(value = "update an existing Plot of Land", notes = "provide the existing plot id to update")
     public ResponseEntity<Plot> updatePlot(@PathVariable Long id, @RequestBody PlotRequest plotRequest) {
         return ResponseEntity.ok().body(plotService.updatePlot(id, plotRequest));
     }
@@ -59,6 +63,7 @@ public class PlotController {
      * @return
      */
     @GetMapping("/plots")
+    @ApiOperation(value = "Fetch details of all Plots of land existing so far in Database")
     public List<PlotDto> fetchPlots() {
         log.info("request received to fetch all plot details");
         return plotService.fetchPlots();
@@ -66,6 +71,7 @@ public class PlotController {
 
 
     @GetMapping("/mock")
+    @ApiOperation(value = "This API used to mock call like coming from scheduler")
     public void mockScheduler() {
         irrigationScheduler.checkIrrigationEveryHour();
     }
