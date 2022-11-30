@@ -52,7 +52,7 @@ public class PlotServiceImpl implements PlotService {
             plot.setBreadth(request.getBreadth());
             return plotRepository.save(plot);
         } else {
-            throw new PlotServiceException();
+            throw new PlotServiceException("Invalid Plot id: " + id);
         }
     }
 

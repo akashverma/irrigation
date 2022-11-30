@@ -23,7 +23,6 @@ public class Plot {
 
     private String length;
     private String breadth;
-    private String area;
 
     @Column(name = "water_amount")
     private String amountOfWater;

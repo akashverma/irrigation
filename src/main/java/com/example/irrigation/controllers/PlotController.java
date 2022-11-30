@@ -1,15 +1,16 @@
 package com.example.irrigation.controllers;
 
 
+import com.example.irrigation.config.Validator;
 import com.example.irrigation.dtos.PlotDto;
 import com.example.irrigation.dtos.request.PlotRequest;
 import com.example.irrigation.entity.Plot;
 import com.example.irrigation.scheduler.IrrigationScheduler;
 import com.example.irrigation.services.PlotService;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -37,10 +39,11 @@ public class PlotController {
      *
      * @param plotRequest
      */
-    @PostMapping("/plot")
+    @PostMapping(value = "/plot", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "API to add a new Plot of Land", notes = "Choose Slot from MORNING, NOON, EVENING")
-    public ResponseEntity<Plot> addPlot(@RequestBody PlotRequest plotRequest) {
+    public ResponseEntity<Plot> addPlot(@Valid @RequestBody PlotRequest plotRequest) {
         log.info("request received to add a new PlotRequest of Land: [{}]", plotRequest);
+        Validator.validate(plotRequest);
         return ResponseEntity.accepted().body(plotService.addPlot(plotRequest));
     }
 
@@ -73,6 +76,6 @@ public class PlotController {
     @GetMapping("/mock")
     @ApiOperation(value = "This API used to mock call like coming from scheduler")
     public void mockScheduler() {
-        irrigationScheduler.checkIrrigationEveryHour();
+        irrigationScheduler.scheduledJob();
     }
 }

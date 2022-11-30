@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "cd7c8995-cb91-4cc1-965a-f6d2df8f4733",
+		"name": "seedData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addNewPlot1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"length\":2,\n    \"breadth\":4,\n    \"amountOfWater\":100,\n    \"timeSlot\":\"MORNING\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7071/v1/plot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"v1",
+						"plot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addNewPlot2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"length\":3,\n    \"breadth\":6,\n    \"amountOfWater\":150,\n    \"timeSlot\":\"NOON\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7071/v1/plot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"v1",
+						"plot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addNewPlot3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"length\":4,\n    \"breadth\":8,\n    \"amountOfWater\":200,\n    \"timeSlot\":\"EVENING\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7071/v1/plot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"v1",
+						"plot"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

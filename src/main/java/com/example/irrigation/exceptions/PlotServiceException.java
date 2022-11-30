@@ -2,7 +2,9 @@ package com.example.irrigation.exceptions;
 
 public class PlotServiceException extends RuntimeException{
 
-    public PlotServiceException(){
-        String message = "Invalid Plot Id";
+    final String message;
+
+    public PlotServiceException(String message){
+        this.message = message;
     }
 }

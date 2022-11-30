@@ -28,7 +28,7 @@ public class IrrigationScheduler {
      * executing a task on every three hours to check for schedule
      */
     @Scheduled(fixedRate = 10800000)
-    public void checkIrrigationEveryHour() {
+    public void scheduledJob() {
 
         log.info("IrrigationScheduler Fired!");
         TimeSlot currentSlot = deduceSlot();
