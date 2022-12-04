@@ -1,5 +1,7 @@
 package com.example.irrigation.scheduler;
 
+import com.example.irrigation.config.emailconfig.EmailDetails;
+import com.example.irrigation.config.emailconfig.EmailServiceImpl;
 import com.example.irrigation.dtos.TimeSlot;
 import com.example.irrigation.entity.Plot;
 import com.example.irrigation.repository.PlotRepository;
@@ -27,6 +29,9 @@ public class IrrigationScheduler {
     @Autowired
     private PlotRepository plotRepository;
 
+    @Autowired
+    private EmailServiceImpl emailService;
+
     /**
      * executing a task on every three hours to check for schedule
      */
@@ -48,9 +53,18 @@ public class IrrigationScheduler {
             }
         } else {
             log.error("No Scheduled plot found for irrigation. Check Seed Data!!");
-            log.error("Send email/SMS notification to Admin!");
+            log.error("Sending email notification to Admin!");
+            emailService.sendSimpleMail(prepareEmailDetails());
             failure = true;
         }
+    }
+
+    EmailDetails prepareEmailDetails(){
+        EmailDetails details = new EmailDetails();
+        details.setRecipient("divyatefl05@gmail.com");
+        details.setMsgBody("Irrigation has failed, Please check configuration");
+        details.setSubject("Irrigation Failure");
+        return details;
     }
 
     /**
