@@ -39,6 +39,7 @@ public class PlotServiceImpl implements PlotService {
     @Override
     public List<PlotDto> fetchPlots() {
         List<Plot> plots = (List<Plot>) plotRepository.findAll();
+        log.info("Fetched all Plots currently configured with size: {} ", plots.size());
         return convertToPlotDto(plots);
     }
 
