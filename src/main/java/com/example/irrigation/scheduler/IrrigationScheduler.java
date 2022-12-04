@@ -21,6 +21,9 @@ public class IrrigationScheduler {
     @Value(value = "${slot.picker}")
     private String slotPicker;
 
+    @Value(value = "${failure.flag}")
+    private boolean failure;
+
     @Autowired
     private PlotRepository plotRepository;
 
@@ -46,6 +49,19 @@ public class IrrigationScheduler {
         } else {
             log.error("No Scheduled plot found for irrigation. Check Seed Data!!");
             log.error("Send email/SMS notification to Admin!");
+            failure = true;
+        }
+    }
+
+    /**
+     * try to imitate the sensor again if it was not available previously
+     */
+    @Scheduled(cron = "0 0 */3 * * *")
+    public void retry() {
+        log.info("Checking the sensor device for failure---");
+        if (failure){
+            log.info("Sensor Failure detected, retrying scheduled irrigation now");
+            scheduledJob();
         }
     }
 
