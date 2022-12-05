@@ -1,7 +1,7 @@
 # Irrigation System
 This system enables the sensor to pick the plot of land which is due for irrigation based on their pre-configured time slot (MORNING, NOON, EVENING).
 
-The below seed data must be prepared by calling the seedData postman Collection. 
+The below seed data must be prepared either by provided db script (seed.sql) or via calling the seedData postman Collection. 
 Import in postman and run via "postman runner" all curls.
 
 ![seedData.png](seedData.png)
