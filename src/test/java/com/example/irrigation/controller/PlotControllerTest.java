@@ -71,13 +71,5 @@ class PlotControllerTest {
         assertEquals(TimeSlot.MORNING, plotResponseEntity.getBody().getTimeSlot());
     }
 
-    @Test
-    void testAddPlot_MissingDimension() {
-        PlotRequest request = plotRequest();
-        request.setLength("");
-        Assertions.assertThrows(PlotServiceException.class, ()-> {
-           plotController.addPlot(request);
-        });
-    }
 
 }

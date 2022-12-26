@@ -1,7 +1,6 @@
 package com.example.irrigation.controllers;
 
 
-import com.example.irrigation.config.Validator;
 import com.example.irrigation.dtos.PlotDto;
 import com.example.irrigation.dtos.request.PlotRequest;
 import com.example.irrigation.entity.Plot;
@@ -12,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +26,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/v1")
+@Validated
 public class PlotController {
 
     @Autowired
@@ -43,7 +44,6 @@ public class PlotController {
     @ApiOperation(value = "API to add a new Plot of Land", notes = "Choose Slot from MORNING, NOON, EVENING")
     public ResponseEntity<Plot> addPlot(@Valid @RequestBody PlotRequest plotRequest) {
         log.info("request received to add a new PlotRequest of Land: [{}]", plotRequest);
-        Validator.validate(plotRequest);
         return ResponseEntity.accepted().body(plotService.addPlot(plotRequest));
     }
 
