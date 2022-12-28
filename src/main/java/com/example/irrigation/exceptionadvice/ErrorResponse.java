@@ -1,4 +1,4 @@
-package com.example.irrigation.exceptions;
+package com.example.irrigation.exceptionadvice;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,5 @@
-package com.example.irrigation.advice;
+package com.example.irrigation.exceptionadvice;
 
-import com.example.irrigation.exceptions.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +32,15 @@ public class ApplicationExceptionHandler {
         errorResponse.setErrorResults(errorResults);
         return ResponseEntity.badRequest().body(errorResponse);
 
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(value = PlotServiceException.class)
+    public ResponseEntity<?> handleNotFoundException(PlotServiceException pse){
+        ErrorResponse errorResponse = new ErrorResponse();
+        errorResponse.setMessage(pse.getMessage());
+        errorResponse.setHttpStatus(HttpStatus.NOT_FOUND);
+        return ResponseEntity.badRequest().body(errorResponse);
     }
 
 }

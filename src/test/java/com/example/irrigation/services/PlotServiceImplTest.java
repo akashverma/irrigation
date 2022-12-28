@@ -4,7 +4,7 @@ import com.example.irrigation.dtos.PlotDto;
 import com.example.irrigation.dtos.TimeSlot;
 import com.example.irrigation.dtos.request.PlotRequest;
 import com.example.irrigation.entity.Plot;
-import com.example.irrigation.exceptions.PlotServiceException;
+import com.example.irrigation.exceptionadvice.PlotServiceException;
 import com.example.irrigation.repository.PlotRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
