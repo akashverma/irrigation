@@ -3,7 +3,7 @@ package com.example.irrigation.services;
 import com.example.irrigation.dtos.PlotDto;
 import com.example.irrigation.dtos.request.PlotRequest;
 import com.example.irrigation.entity.Plot;
-import com.example.irrigation.exceptions.PlotServiceException;
+import com.example.irrigation.exceptionadvice.PlotServiceException;
 import com.example.irrigation.repository.PlotRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
