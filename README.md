@@ -29,7 +29,7 @@ portal url hosted at - http://localhost:7071/swagger-ui.html
 ### UML
 The following guides illustrate how to the classes are modelled:
 
-* plot
+* refer src/main/resources/diagrams/irrigation-Uml-diagram.png
 
 Email Service:
 For sending email to notify the irrigation administrator.
