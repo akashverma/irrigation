@@ -31,6 +31,5 @@ The following guides illustrate how to the classes are modelled:
 
 * plot
 
-Assumption:
-Using the Email Service as a mock, Mocking the Email Service Not sending actual emails.
-(We can use sendgrid or for example to implement that as well.)
+Email Service:
+For sending email to notify the irrigation administrator.
